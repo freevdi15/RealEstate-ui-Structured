@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeRealEstateAi - AI Powered Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ========================================
+         LANDING PAGE SECTION
+         This is what users see before logging in
+    ========================================= -->
+    <div id="landingPage">
+        <!-- Header with Logo and Navigation -->
+        <header class="landing-header">
+            <div class="container">
+                <!-- Logo Section: Replace logo.png with your logo file -->
+                <div class="logo-section">
+                    <img src="Asset\final-design.jpg" alt="BeRealEstateAi Logo" class="logo-image">
+                    <h1 class="brand-name">BeRealEstateAi</h1>
+                </div>
+
+                <!-- Login/Signup Buttons -->
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" onclick="showLogin()">Login</button>
+                    <button class="btn btn-primary" onclick="showSignup()">Sign Up</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">AI Powered Trust for Your Real Estate Journey</h2>
+                    <p class="hero-subtitle">Discover your dream property with intelligent AI assistance</p>
+                    <button class="btn btn-large btn-primary" onclick="showLogin()">Get Started</button>
+                </div>
+                <div class="hero-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏠</div>
+                        <h3>Smart Search</h3>
+                        <p>AI-powered property recommendations</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Market Insights</h3>
+                        <p>Real-time market analytics</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⭐</div>
+                        <h3>Verified Listings</h3>
+                        <p>Authentic property verification</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ========================================
+         LOGIN MODAL
+         Popup for user authentication
+    ========================================= -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+
+            <div class="modal-header">
+                <img src="Asset\final-design.jpg" alt="BeRealEstateAi Logo" class="modal-logo">
+                <h2>Welcome Back</h2>
+                <p>Login to continue your real estate journey</p>
+            </div>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <!-- Email Input -->
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-input" 
+                           placeholder="Enter your email" required>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-input" 
+                           placeholder="Enter your password" required>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="link-gold">Forgot Password?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+                <!-- Demo Credentials Info -->
+                <div class="demo-info">
+                    <p><strong>Demo Credentials:</strong></p>
+                    <p>Email: demo@berealestateai.com</p>
+                    <p>Password: demo123</p>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <!-- Google Login Button -->
+                <button type="button" class="btn btn-google" onclick="handleGoogleLogin()">
+                    <span class="google-icon">G</span>
+                    Continue with Google
+                </button>
+
+                <!-- Switch to Signup -->
+                <div class="switch-auth">
+                    <p>Don't have an account? <a href="#" class="link-gold" onclick="switchToSignup(event)">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================
+         SIGNUP MODAL
+         Popup for new user registration
+    ========================================= -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSignup()">&times;</span>
+
+            <div class="modal-header">
+                <img src="Asset\final-design.jpg" alt="BeRealEstateAi Logo" class="modal-logo">
+                <h2>Create Account</h2>
+                <p>Join BeRealEstateAi today</p>
+            </div>
+
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <!-- Full Name Input -->
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" class="form-input" 
+                           placeholder="Enter your full name" required>
+                </div>
+
+                <!-- Email Input -->
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" class="form-input" 
+                           placeholder="Enter your email" required>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" class="form-input" 
+                           placeholder="Create a password" required>
+                </div>
+
+                <!-- Confirm Password Input -->
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" class="form-input" 
+                           placeholder="Confirm your password" required>
+                </div>
+
+                <!-- Terms & Conditions -->
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span>I agree to the Terms & Conditions</span>
+                    </label>
+                </div>
+
+                <!-- Signup Button -->
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <!-- Google Signup Button -->
+                <button type="button" class="btn btn-google" onclick="handleGoogleLogin()">
+                    <span class="google-icon">G</span>
+                    Continue with Google
+                </button>
+
+                <!-- Switch to Login -->
+                <div class="switch-auth">
+                    <p>Already have an account? <a href="#" class="link-gold" onclick="switchToLogin(event)">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================
+         DASHBOARD - MAIN APPLICATION
+         This is what users see after logging in
+    ========================================= -->
+    <div id="dashboard" style="display: none;">
+        <!-- Top Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <!-- Logo and Brand -->
+                <div class="navbar-brand">
+                    <img src="Asset\final-design.jpg" alt="BeRealEstateAi Logo" class="navbar-logo">
+                    <span class="navbar-title">BeRealEstateAi</span>
+                </div>
+
+                <!-- User Menu -->
+                <div class="navbar-menu">
+                    <span class="user-greeting">Welcome, <span id="userName">User</span></span>
+                    <button class="btn btn-outline-small" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main-container">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <ul class="nav-menu">
+                    <li class="nav-item active" onclick="showSection('home')">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text">Home</span>
+                    </li>
+                    <li class="nav-item" onclick="showSection('search')">
+                        <span class="nav-icon">🔍</span>
+                        <span class="nav-text">Search</span>
+                    </li>
+                    <li class="nav-item" onclick="showSection('favorites')">
+                        <span class="nav-icon">❤️</span>
+                        <span class="nav-text">Favorites</span>
+                    </li>
+                    <li class="nav-item" onclick="showSection('profile')">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">Profile</span>
+                    </li>
+                    <li class="nav-item" onclick="showSection('settings')">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Settings</span>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content">
+                <!-- Search Bar Section -->
+                <section class="search-section">
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" class="search-input" 
+                               placeholder="Search by location, property type, or price...">
+                        <button class="btn btn-primary" onclick="handleSearch()">
+                            <span>🔍</span> Search
+                        </button>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="filters">
+                        <select id="propertyType" class="filter-select">
+                            <option value="">All Types</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="condo">Condo</option>
+                            <option value="villa">Villa</option>
+                        </select>
+
+                        <select id="priceRange" class="filter-select">
+                            <option value="">All Prices</option>
+                            <option value="0-500000">Under ₹50L</option>
+                            <option value="500000-1000000">₹50L - ₹1Cr</option>
+                            <option value="1000000-2000000">₹1Cr - ₹2Cr</option>
+                            <option value="2000000+">Above ₹2Cr</option>
+                        </select>
+
+                        <select id="bedrooms" class="filter-select">
+                            <option value="">Bedrooms</option>
+                            <option value="1">1 BHK</option>
+                            <option value="2">2 BHK</option>
+                            <option value="3">3 BHK</option>
+                            <option value="4+">4+ BHK</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- AI Recommendations Section -->
+                <section class="recommendations-section">
+                    <h2 class="section-title">
+                        <span class="title-icon">✨</span>
+                        AI Recommended For You
+                    </h2>
+                    <div id="propertiesGrid" class="properties-grid">
+                        <!-- Property cards will be loaded here by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Market Insights Widget -->
+                <section class="insights-section">
+                    <h2 class="section-title">
+                        <span class="title-icon">📊</span>
+                        Market Insights
+                    </h2>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-value">₹85.2L</div>
+                            <div class="insight-label">Avg. Price in Your Area</div>
+                            <div class="insight-trend positive">↑ 12% from last month</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-value">247</div>
+                            <div class="insight-label">New Listings This Week</div>
+                            <div class="insight-trend positive">↑ 18% increase</div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-value">32 days</div>
+                            <div class="insight-label">Avg. Time on Market</div>
+                            <div class="insight-trend negative">↓ 5 days faster</div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Load JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
