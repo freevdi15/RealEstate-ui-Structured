@@ -1,0 +1,20 @@
+[
+  {
+    "id": "p1",
+    "title": "Luxury 2 BHK in Downtown",
+    "location": "Chennai, Tamil Nadu",
+    "price": 8500000,
+    "thumbnail": "/assets/images/sample1.jpg",
+    "image": "/assets/images/sample1.jpg",
+    "description": "Spacious 2BHK with balcony and daylight."
+  },
+  {
+    "id": "p2",
+    "title": "Cozy Studio Apartment",
+    "location": "Bengaluru, Karnataka",
+    "price": 4200000,
+    "thumbnail": "/assets/images/sample2.jpg",
+    "image": "/assets/images/sample2.jpg",
+    "description": "Perfect for singles or couples."
+  }
+]
